@@ -1,0 +1,7 @@
+Control ID,Control Name,Policy ID,Owner,Frequency,Status
+CTRL-101,Quarterly access privilege review,POL-ACP,IT Security Team,Quarterly,Active
+CTRL-102,Database encryption at rest (AES-256),POL-ISP,Infrastructure Team,Continuous,Active
+CTRL-103,Vendor security assessment at onboarding,POL-VND,Risk Management Team,Onboarding,Active
+CTRL-104,TLS 1.2+ for data in transit,POL-ISP,Infrastructure Team,Continuous,Active
+CTRL-105,KYC record retention (8 years),POL-DRP,Data Governance,Continuous,Active
+CTRL-106,Security log retention (180 days),POL-ISP,Security Operations,Continuous,Active
