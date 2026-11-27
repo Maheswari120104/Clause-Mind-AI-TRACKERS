@@ -1,0 +1,200 @@
+/**
+ * Maps obligations → internal policies / controls with gap severity.
+ * Coverage: Covered | Partial | Missing
+ * Severity: Low | Medium | High | Critical (for gaps)
+ */
+
+export const mappingCatalog = {
+  'obl-1': {
+    policyId: 'POL-ACP',
+    policyName: 'Access Control Policy',
+    policySection: 'ACP-3.2',
+    controlId: 'CTRL-101',
+    controlName: 'Quarterly access privilege review',
+    coverage: 'Partial',
+    severity: 'Medium',
+    gapReason:
+      'Policy says “periodically”; RBI Clause 4.2 requires an explicit 90-day cycle.',
+    suggestedPolicyUpdate:
+      'Access privilege reviews shall be conducted every 90 days for all production systems processing customer data, in accordance with RBI Circular Clause 4.2.',
+    action: {
+      title: 'Update Access Control Policy to 90-day review cycle',
+      owner: 'IT Security Team',
+      dueDays: 30,
+      reason: 'Required under RBI Circular Clause 4.2',
+    },
+  },
+  'obl-2': {
+    policyId: 'POL-ISP',
+    policyName: 'Information Security Policy',
+    policySection: 'ISP-5.1',
+    controlId: 'CTRL-102',
+    controlName: 'Database encryption at rest (AES-256)',
+    coverage: 'Covered',
+    severity: null,
+    gapReason: null,
+    suggestedPolicyUpdate: null,
+    action: null,
+  },
+  'obl-3': {
+    policyId: 'POL-ISP',
+    policyName: 'Information Security Policy',
+    policySection: 'ISP-5.1',
+    controlId: null,
+    controlName: null,
+    coverage: 'Missing',
+    severity: 'High',
+    gapReason: 'No control for dual-control key management separate from app hosts.',
+    suggestedPolicyUpdate:
+      'Encryption keys shall be stored and rotated under dual-control, segregated from application hosts, per RBI Circular Clause 5.3.',
+    action: {
+      title: 'Implement dual-control KMS and document CTRL for key segregation',
+      owner: 'Infrastructure Team',
+      dueDays: 60,
+      reason: 'Required under RBI Circular Clause 5.3',
+    },
+  },
+  'obl-4': {
+    policyId: 'POL-VND',
+    policyName: 'Vendor Risk Management Policy',
+    policySection: 'VND-2.3',
+    controlId: 'CTRL-103',
+    controlName: 'Vendor security assessment at onboarding',
+    coverage: 'Missing',
+    severity: 'Critical',
+    gapReason:
+      'Onboarding assessment exists; no annual Vendor Privacy Assessment control.',
+    suggestedPolicyUpdate:
+      'Critical vendors processing personal data shall undergo an annual Vendor Privacy Assessment in addition to onboarding due diligence, per RBI Circular Clause 7.3.',
+    action: {
+      title: 'Create annual vendor privacy assessment process',
+      owner: 'Risk Management Team',
+      dueDays: 30,
+      reason: 'Required under RBI Circular Clause 7.3',
+    },
+  },
+  'obl-5': {
+    policyId: 'POL-VND',
+    policyName: 'Vendor Risk Management Policy',
+    policySection: 'VND-2.3',
+    controlId: null,
+    controlName: null,
+    coverage: 'Missing',
+    severity: 'High',
+    gapReason: 'No escalation workflow to Board Risk Committee within 45 days.',
+    suggestedPolicyUpdate:
+      'Material findings from vendor privacy assessments shall be reported to the Board Risk Committee within 45 days.',
+    action: {
+      title: 'Define BRC escalation SLA for material vendor findings',
+      owner: 'Risk Management Team',
+      dueDays: 45,
+      reason: 'Required under RBI Circular Clause 7.5',
+    },
+  },
+  'obl-6': {
+    policyId: 'POL-DRP',
+    policyName: 'Data Retention Policy',
+    policySection: 'DRP-2.1',
+    controlId: null,
+    controlName: null,
+    coverage: 'Missing',
+    severity: 'High',
+    gapReason: 'No documented data lineage control for order/settlement data.',
+    suggestedPolicyUpdate: null,
+    action: {
+      title: 'Establish data lineage documentation for order & settlement systems',
+      owner: 'Data Governance',
+      dueDays: 90,
+      reason: 'Required under SEBI Circular Clause 3.1',
+    },
+  },
+  'obl-7': {
+    policyId: 'POL-ISP',
+    policyName: 'Information Security Policy',
+    policySection: 'ISP-6.2',
+    controlId: null,
+    controlName: null,
+    coverage: 'Missing',
+    severity: 'Medium',
+    gapReason: 'Logging exists; no quarterly CISO data-integrity attestation control.',
+    suggestedPolicyUpdate:
+      'The CISO shall attest to data integrity controls on a quarterly basis per SEBI Data Governance Framework Clause 3.4.',
+    action: {
+      title: 'Add quarterly CISO integrity attestation to control register',
+      owner: 'CISO Office',
+      dueDays: 45,
+      reason: 'Required under SEBI Circular Clause 3.4',
+    },
+  },
+  'obl-8': {
+    policyId: 'POL-PRV',
+    policyName: 'Privacy Policy',
+    policySection: 'PRV-2.1',
+    controlId: null,
+    controlName: null,
+    coverage: 'Partial',
+    severity: 'High',
+    gapReason: 'Purpose limitation stated; no verifiable per-purpose consent register control.',
+    suggestedPolicyUpdate:
+      'The organisation shall maintain verifiable consent records mapped to each processing purpose, as required under DPDP Guidelines Clause 8.1.',
+    action: {
+      title: 'Implement consent evidence register linked to processing purposes',
+      owner: 'Data Protection Officer',
+      dueDays: 60,
+      reason: 'Required under DPDP Guidelines Clause 8.1',
+    },
+  },
+  'obl-9': {
+    policyId: 'POL-PRV',
+    policyName: 'Privacy Policy',
+    policySection: 'PRV-2.1',
+    controlId: null,
+    controlName: null,
+    coverage: 'Missing',
+    severity: 'Critical',
+    gapReason: 'No 72-hour breach notification playbook to Data Protection Board.',
+    suggestedPolicyUpdate:
+      'Personal data breaches likely to cause harm shall be notified to the Data Protection Board within 72 hours of awareness, per DPDP Guidelines Clause 11.2.',
+    action: {
+      title: 'Publish 72-hour DPB breach notification runbook',
+      owner: 'Data Protection Officer',
+      dueDays: 21,
+      reason: 'Required under DPDP Guidelines Clause 11.2',
+    },
+  },
+  'obl-10': {
+    policyId: 'POL-ISP',
+    policyName: 'Information Security Policy',
+    policySection: 'ISP-6.2',
+    controlId: null,
+    controlName: null,
+    coverage: 'Missing',
+    severity: 'High',
+    gapReason: 'No annual independent cyber security audit control for core systems.',
+    suggestedPolicyUpdate: null,
+    action: {
+      title: 'Schedule annual independent cyber security audit (policy & claims)',
+      owner: 'Internal Audit',
+      dueDays: 90,
+      reason: 'Required under IRDAI Guidelines Clause 6.1',
+    },
+  },
+  'obl-11': {
+    policyId: 'POL-ISP',
+    policyName: 'Information Security Policy',
+    policySection: 'ISP-4.1',
+    controlId: null,
+    controlName: null,
+    coverage: 'Missing',
+    severity: 'Medium',
+    gapReason: 'No board-approved Cyber Resilience Plan annual review control.',
+    suggestedPolicyUpdate:
+      'A board-approved Cyber Resilience Plan shall be reviewed at least once every financial year per IRDAI Clause 6.4.',
+    action: {
+      title: 'Draft / refresh Cyber Resilience Plan for board approval',
+      owner: 'CISO Office',
+      dueDays: 60,
+      reason: 'Required under IRDAI Guidelines Clause 6.4',
+    },
+  },
+}

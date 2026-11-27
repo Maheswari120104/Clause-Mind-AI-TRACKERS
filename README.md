@@ -1,20 +1,33 @@
-# Clause Mind AI — Compliance Copilot
+# Clause Mind AI — Regulatory Change & Compliance Copilot
 
-Basic dashboard scaffold for the AI Compliance Copilot hackathon project.
+Agentic demo for monitoring regulatory updates (RBI, SEBI, IRDAI, DPDP), extracting obligations, mapping them to an internal policy handbook and control register, flagging gaps, drafting actions, and routing findings to a compliance officer with a full audit trail.
 
-## Run locally
+## Run
 
 ```bash
 npm install
 npm run dev
 ```
 
-Open the URL shown in the terminal (usually `http://localhost:5173`).
+## Demo flow
 
-## What’s included
+1. **Ingest** — select 3–5 sample circular PDFs → Extract  
+2. **Obligations** — clause, owner, deadline, confidence  
+3. **Policies** — mock handbook + control register  
+4. **Gap Analysis** — Covered / Partial / Missing + severity  
+5. **Actions** — remediation tasks & suggested policy text  
+6. **Officer Review** — Approve / Edit / Reject  
+7. **Audit Trail** — immutable event history  
 
-- Vite + React app
-- Compliance summary metrics
-- Obligations table with mock data
+## Demo data
 
-AI ingestion, obligation extraction, and gap analysis are not implemented yet — this is the UI shell only.
+| Asset | Path |
+|-------|------|
+| Policy handbook | `public/Policy_Handbook.md` |
+| Control register | `public/Control_Register.csv` |
+| Circulars & extractions | `src/data/circulars.js` |
+| Gap mappings | `src/data/mappings.js` |
+
+## Branch
+
+Feature work for this upgrade lives on `dev-maheswari-upgrade`.

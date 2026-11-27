@@ -1,25 +1,8 @@
 :root {
-  --bg: #f2f5f8;
-  --bg-elevated: #ffffff;
-  --ink: #0f1c2e;
-  --ink-muted: #5a6b7d;
-  --border: #d8e0e8;
-  --accent: #0d6e6e;
-  --accent-soft: #e6f3f3;
-  --warn: #b45309;
-  --warn-soft: #fef3c7;
-  --danger: #b91c1c;
-  --danger-soft: #fee2e2;
-  --ok: #047857;
-  --ok-soft: #d1fae5;
-  --pending: #1d4ed8;
-  --pending-soft: #dbeafe;
-  --shadow: 0 1px 2px rgba(15, 28, 46, 0.04), 0 8px 24px rgba(15, 28, 46, 0.06);
-  font-family: "DM Sans", system-ui, sans-serif;
+  font-family: "Roboto", Arial, sans-serif;
   line-height: 1.5;
-  font-weight: 400;
-  color: var(--ink);
-  background: var(--bg);
+  color: #263547;
+  background: #f3f5f8;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -31,20 +14,35 @@
   box-sizing: border-box;
 }
 
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
 body {
   margin: 0;
   min-width: 320px;
-  min-height: 100vh;
-  background:
-    radial-gradient(ellipse 80% 50% at 0% 0%, rgba(13, 110, 110, 0.08), transparent 55%),
-    radial-gradient(ellipse 60% 40% at 100% 0%, rgba(15, 28, 46, 0.05), transparent 50%),
-    var(--bg);
+  background: #f3f5f8;
 }
 
-#root {
-  min-height: 100vh;
+button,
+input,
+textarea,
+select {
+  font: inherit;
 }
 
 button {
-  font-family: inherit;
+  cursor: pointer;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c7d0d9;
+  border-radius: 8px;
 }
